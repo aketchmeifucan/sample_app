@@ -11,6 +11,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
+  #hint for exercise 1 is to add :admin....but I want to make it not accessible??? Not sure how to do this!
   has_secure_password
   before_save {|user| user.email = email.downcase}
   before_save {self.email.downcase!}
