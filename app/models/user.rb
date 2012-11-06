@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
   #hint for exercise 1 is to add :admin....but I want to make it not accessible??? Not sure how to do this!
   has_secure_password
+  has_many :microposts, dependent: :destroy
   before_save {|user| user.email = email.downcase}
   before_save {self.email.downcase!}
   before_save :create_remember_token
@@ -21,6 +22,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
+
+  def feed
+	  # This is preliminary!!! "Following users" for full implement1@!@#
+	  Micropost.where("user_id = ?", id)
+  end
 
   private
   	def create_remember_token
