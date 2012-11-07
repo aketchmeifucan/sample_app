@@ -40,4 +40,8 @@ describe Micropost do
 	 	# before { @microposts.count = validcount}
 		# it {should_not be_valid}
 	end
+
+	describe "correct micropost pagination" do
+		# correct pagination test stuff
+	end
 end
