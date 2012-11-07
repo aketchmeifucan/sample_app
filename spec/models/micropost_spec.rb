@@ -35,4 +35,9 @@ describe Micropost do
 		before { @micropost.content = "a" * 141 }
 		it {should_not be_valid}
 	end
+
+	describe "valid micropost counts" do
+	 	# before { @microposts.count = validcount}
+		# it {should_not be_valid}
+	end
 end
