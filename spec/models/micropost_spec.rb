@@ -44,4 +44,9 @@ describe Micropost do
 	describe "correct micropost pagination" do
 		# correct pagination test stuff
 	end
+
+	describe "delete links do not appear for others microposts" do
+		# make sure the links don't appear for microposts
+		# that were not created by the current user
+	end
 end
