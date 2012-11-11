@@ -198,6 +198,17 @@ describe User do
 			its(:followers) { should include(@user) }
 		end
 
+		describe "should destroy relationships" do
+			# FOR some reason followed_users isn't a method??
+			# I don't understand how to go about figuring this out
+#			relationships = @user.followed_users.dup
+#			@user.destroy
+#			relationships.should_not be_empty
+#			relationships.each do |relationship|
+#				User.find_by_id(relationship.id).should be_nil
+#			end
+		end
+
 		describe "and unfollowing" do
 			before { @user.unfollow!(other_user) }
 
